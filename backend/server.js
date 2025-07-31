@@ -194,9 +194,10 @@ app.get('/', (req, res) => {
 });
 
 // Catch-all handler: send back React's index.html file for any non-API routes
-app.get('*', (req, res) => {
+app.get(/^\/(?!api).*/, (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
