@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bloodbank', {
+mongoose.connect(process.env.MONGODB_URI || 'https://blood-bank-xpby.onrender.com/', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -200,7 +200,7 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
-    console.log(`Frontend available at: http://localhost:${PORT}`);
-    console.log(`API available at: http://localhost:${PORT}/api`);
+    console.log(`Frontend available at: https://blood-bank-xpby.onrender.com/`);
+    console.log(`API available at: https://blood-bank-xpby.onrender.com/`);
     console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
